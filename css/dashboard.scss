@@ -1,0 +1,808 @@
+// Font : Ubuntu, Imported from Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+// Color Palette
+$darker-blue: #000a2c;
+$dark-blue: #1b378c;
+$blue: #2c53c7;
+$light-blue: #3a8ec7;
+$gray: #d0d3de;
+$white: #f3f4fa;
+$black: #252525;
+$red: #c73a3a;
+$green: #57A55D;
+// Font Weight Regular = 400
+$regular: 400;
+// Button Style
+%buttons {
+    outline: none;
+    border-style: outset;
+    border: none;
+    border-radius: 10px;
+    height: 63px;
+    font-size: 26px;
+    cursor: pointer;
+}
+// Confirmation Overlay Text
+%overlay-text {
+    color: $white;
+    font-size: 26px;
+    font-weight: $regular;
+    text-align: center;
+    width: 80%;
+    padding-bottom: 1em;
+    position: absolute;
+    left: 10%;
+}
+// Input Styling
+%input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a8ec780;
+    height: 40px;
+    font-size: 16px;
+    color: $black;
+    padding-left: 10px;
+    width: 100%;
+}
+::placeholder {
+    color: $black;
+    opacity: 0.6;
+}
+
+// Resets
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+// Grid with 1 column and 3 rows (for each section) for Mobile
+body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: $gray;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+        "top"
+        "middle"
+        "bottom";
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 1fr 12%;
+    grid-gap: 23px;
+    overflow: hidden;
+}
+// Desktop elements to hide
+nav {
+    display: none;
+}
+#add-desktop {
+    display: none;
+}
+.top-right-icons {
+    display: none;
+}
+
+// Top fixed section with logo and search bar
+.top-section {
+    position: fixed;
+    top: 0;
+    grid-area: top;
+    padding-bottom: 23px;
+    background-color: $gray;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+// logo styling
+h1 {
+    font-size: 47px;
+    font-weight: $regular;
+    text-align: center;
+}
+.logo {
+    span {
+        color: $blue;
+    }
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+// Search Bar
+.search-container {
+    background-color: $white;
+    border-radius: 10px;
+    width: 90%;
+    height: 47px;
+    margin: 0 auto;
+}
+.search-bar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.search {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 90%;
+    background-color: $white;
+    font-size: 25px;
+    font-weight: $regular;
+    color: $black;
+    margin-left: 0.5em;
+}
+.search-icon {
+    padding-right: 1em;
+    cursor: pointer;
+    img {
+        margin-left: auto;
+        margin-right: 4%;
+    }
+}
+
+// Main Middle section of the grid with enabled scrolling for all the products
+.middle-section {
+    grid-area: middle;
+    overflow-y: scroll;
+}
+// Product Element
+.product {
+    position: relative;
+    padding-top: 1em;
+    .expand {
+        position: absolute;
+        left: 80%;
+        padding-top: 15px;
+        cursor: pointer;
+    }
+    .hidden_information {
+        display: none;
+    }
+    border-radius: 10px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto 23px auto;
+    background-color: $white;
+}
+
+// Product Image
+.lap-img-container {
+    display: none;
+}
+// Product Base Information
+.base {
+    position: relative;
+    right: 0;
+    left: 10%;
+    width: 70%;
+    .name {
+        font-size: 26px;
+        font-weight: $regular;
+        color: $black;
+        padding-bottom: 10px;
+    }
+    .brand {
+        font-size: 16px;
+        font-weight: $regular;
+        color: $light-blue;
+        padding-bottom: 20px;
+    }
+}
+// Product Details
+.product-details {
+    position: fixed;
+    padding-top: 1em;
+    z-index: 1;
+    display: none;
+    border-radius: 10px;
+    width: 90%;
+    height: 62%;
+    margin: 0 auto 23px auto;
+    background-color: $white;
+    left: 5%;
+    .compress {
+        position: absolute;
+        right: 0;
+        left: 87%;
+        padding-top: 11px;
+        cursor: pointer;
+    }
+}
+.details {
+    position: relative;
+    right: 0;
+    left: 10%;
+    width: 80%;
+    .id {
+        display: none;
+    }
+    .name {
+        font-size: 26px;
+        font-weight: $regular;
+        color: $black;
+        padding-bottom: 10px;
+    }
+    .brand {
+        font-size: 16px;
+        font-weight: $regular;
+        color: $light-blue;
+        padding-bottom: 24px;
+    }
+    .cpu, .ram, .gpu, .hdd {
+        font-size: 16px;
+        font-weight: $regular;
+        color: $light-blue;
+        padding-bottom: 38px;
+    }
+    .spec {
+        font-size: 16px;
+        font-weight: $regular;
+        color: $black;
+        padding-bottom: 14px;
+    }
+}
+// Add Product Page
+.add-product {
+    border-radius: 10px;
+    width: 90%;
+    height: 62%;
+    margin: 0 auto 23px auto;
+    background-color: $white;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 4;
+    left: 5%;
+    .add-form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        left: 8%;
+        top: 15%;
+        height: 75%;
+        width: 93%;
+    }
+    .return {
+        position: absolute;
+        right: 0;
+        left: 80%;
+        top: 7%;
+        cursor: pointer;
+    }
+    input {
+        @extend %input;
+        //margin: 26px auto 0 auto;
+        width: 84%;
+    }
+}
+// Edit Product Page
+.edit-product {
+    border-radius: 10px;
+    width: 90%;
+    height: 62%;
+    margin: 0 auto 23px auto;
+    background-color: $white;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    left: 5%;
+    .return {
+        position: absolute;
+        right: 0;
+        left: 80%;
+        top: 7%;
+        cursor: pointer;
+    }
+    .base-edit {
+        position: relative;
+        right: 0;
+        left: 10%;
+        width: 70%;
+        top: 3.1%;
+        .name {
+            font-size: 26px;
+            font-weight: $regular;
+            color: $black;
+            padding-bottom: 10px;
+        }
+        .brand {
+            font-size: 16px;
+            font-weight: $regular;
+            color: $light-blue;
+            padding-bottom: 20px;
+        }
+    }
+    .edit-form {
+        position: absolute;
+        left: 8%;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* left: 8%;
+        top: 15%; */
+        height: 75%;
+        width: 85%;
+        .edit-element {
+            width: auto;
+        }
+    }
+    input {
+        @extend %input;
+        width: 75vw;
+    }
+}
+// Edit and Delete confirmation overlay/popup/modal
+.edit-confirm,
+.delete-confirm {
+    border-radius: 10px;
+    width: 90%;
+    height: 73%;
+    margin: 0 auto;
+    background-color: $darker-blue;
+    z-index: 6;
+    position: fixed;
+    left: 5%;
+    display: none;
+    .close {
+        position: absolute;
+        top: 4.5%;
+        left: 79.5%;
+        cursor: pointer;
+    }
+    .name {
+        @extend %overlay-text;
+        top: 30%;
+    }
+    .sure {
+        @extend %overlay-text;
+        top: 50%;
+    }
+}
+
+// Bottom Fixed Section with buttons
+.bottom-section {
+    position: fixed;
+    bottom: -16px;
+    grid-area: bottom;
+    text-align: center;
+    background-color: $gray;
+    width: 100%;
+    height: auto;
+    .bottom-buttons {
+        position: absolute;
+        bottom: 60px;
+        left: 5%;
+        width: 90%;
+    }
+}
+// Button that shows at the normal inventory state and when confirming add & edit forms
+.add {
+    @extend %buttons;
+    width: 100%;
+    background-color: $blue;
+    color: $white;
+}
+.confirm {
+    @extend %buttons;
+    width: 100%;
+    background-color: $blue;
+    color: $white;
+    display: none;
+}
+// Buttons that shows with Product Details
+#view-buttons {
+    display: none;
+    justify-content: space-between;
+    .edit {
+        @extend %buttons;
+        width: 47%;
+        background-color: $blue;
+        color: $white;
+    }
+    .delete {
+        @extend %buttons;
+        width: 47%;
+        background-color: $red;
+        color: $white;
+    }
+}
+// Buttons that shows with the confirmation overlay
+.overlay-buttons {
+    display: none;
+    justify-content: space-between;
+    margin: 0% 5% 0 5%;
+    position: relative;
+    -webkit-box-pack: justify;
+    top: 86%;
+    .yes,
+    .no {
+        @extend %buttons;
+        width: 47%;
+        background-color: $white;
+        color: $black;
+    }
+}
+// "Disabled" class to add with JS to disable interaction with the desktop add button
+.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+.tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* top: 9%;
+    right: 7%; */
+    .tooltip-info {
+        visibility: hidden;
+        width: 84%;
+        background-color: #57A55D;
+        color: $white;
+        text-align: center;
+        padding: 10px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 5;
+        bottom: -38%;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    #tooltip-name, #tooltip-brand, #tooltip-cpu, #tooltip-ram, #tooltip-gpu, #tooltip-hdd {
+        width: 83%;
+    }
+    #tooltip-name {
+        bottom: -40%;
+    }
+    #tooltip-brand {
+        bottom: -60%;
+    }
+    #tooltip-cpu {
+        bottom: -60%;
+    }
+    #tooltip-ram {
+        bottom: -18%;
+    }
+    #tooltip-gpu {
+        bottom: -40%;
+    }
+    #tooltip-hdd {
+        bottom: -18%;
+    }
+    #tooltip-cpu-edit, #tooltip-ram-edit, #tooltip-gpu-edit, #tooltip-hdd-edit {
+        width: 85%;
+    }
+    #tooltip-cpu-edit {
+        bottom: -85%;
+    }
+    #tooltip-ram-edit {
+        bottom: -18%;
+    }
+    #tooltip-gpu-edit {
+        bottom: -40%;
+    }
+    #tooltip-hdd-edit {
+        bottom: -18%;
+    }
+    .info-icon {
+        //padding-left: 2%;
+        cursor: pointer;
+        #info-icon-name, #info-icon-brand, #info-icon-cpu, #info-icon-ram, #info-icon-gpu, #info-icon-hdd {
+            transition: 0.5s;
+        }
+        #info-icon-name-edit, #info-icon-brand-edit, #info-icon-cpu-edit, #info-icon-ram-edit, #info-icon-gpu-edit, #info-icon-hdd-edit {
+            transition: 0.5s;
+        }
+    }
+}
+/* Media Query for Desktop */
+@media only screen and (min-width: 1280px) {
+    // Modifying the grid for Desktop : 2 column (sidebar on left, everything else on right) and 3 rows (for each section)
+    body {
+        display: grid;
+        grid-template-areas:
+            "sidebar top"
+            "sidebar middle"
+            "sidebar bottom";
+        grid-template-columns: 5% 95%;
+        grid-template-rows: 15% 1fr 10%;
+        grid-gap: 23px;
+        overflow: hidden;
+    }
+    // Custom Scroll Bar
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    ::-webkit-scrollbar-track {
+        background: $white;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $light-blue;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: $dark-blue;
+    }
+    // Hiding the desktop text logo
+    .logo {
+        display: none;
+    }
+    // Side Navigation Bar
+    nav {
+        display: block;
+        height: 100vh;
+        width: 90px;
+        grid-area: sidebar;
+        .sidebar {
+            height: 100%;
+            background: $white;
+            width: 100%;
+            position: relative;
+            .nav-icons {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 30%;
+                width: 100%;
+            }
+            .sidebar-icon {
+                margin-top: 1%;
+                margin-left: 33%;
+                margin-bottom: 62%;
+                margin-right: 32%;
+                cursor: pointer;
+            }
+        }
+    }
+    // Modifying the section by making it flex row and for icons at the left
+    .top-section {
+        position: unset;
+        grid-area: top;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0;
+        .search-container {
+            width: 30%;
+            margin: 0;
+        }
+    }
+    // Add Product button at the top for desktop
+    #add-desktop {
+        display: block;
+        width: 20%;
+        background-color: $white;
+        color: $black;
+        border: 3px solid $blue;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    #add-desktop:hover {
+        background-color: $blue;
+        color: $white;
+        transition: 0.5s;
+    }
+    // Icons at the top right for desktop
+    .top-right-icons {
+        display: flex;
+        justify-content: space-between;
+        width: 15%;
+        margin-right: 2.5%;
+        .tr-icon {
+            cursor: pointer;
+        }
+    }
+    // Slight modification to middle section
+    .middle-section{
+        width: 98.5%;
+        height: 106%;
+        grid-area: middle;
+    }
+    // Product Image
+    .lap-img-container {
+        display: block;
+        .lap-img {
+        position: absolute;
+        top: 0%;
+        left: 2.5%;
+        padding: 0;
+        }
+    }
+    // Add Product Page
+    .add-product {
+        width: 83.66%;
+        height: 75%;
+        left: 10.8%;
+        .add-form {
+            height: 61%;
+        }
+        .return {
+            left: 95.7%;
+            top: 5%;
+        }
+        input {
+            //margin: 35px auto 0 auto;
+            width: 69vw;
+        }
+    }
+
+    // Buttons that shows with Product Details
+    #view-buttons {
+    width: 83.66%;
+    height: 20%;
+    position: fixed;
+    top: 75%;
+    left: 10.8%;
+    margin: 0 auto 23px auto;
+    .edit {
+        width: 10%;
+        background-color: $white;
+        color: $black;
+        border: 3px solid $blue;
+        position: absolute;
+        left: 25%;
+        top: 30%;
+        transition: 0.5s;
+    }
+    .edit:hover {
+        background-color: $blue;
+        color: $white;
+        transition: 0.5s;
+    }
+    .delete {
+        width: 10%;
+        background-color: $white;
+        color: $black;
+        border: 3px solid $red;
+        position: absolute;
+        right: 25%;
+        top: 30%;
+        transition: 0.5s;
+    }
+    .delete:hover {
+        background-color: $red;
+        color: $white;
+        transition: 0.5s;
+    }
+}
+    // Hiding the Mobile Add Buttons
+    #add {
+        visibility: hidden;
+    }
+    // Modifying the several buttons at the bottom
+    .bottom-buttons {
+        background-color: #f3f4fa;
+        width: 83.66%;
+        height: 58%;
+        left: 10.8%;
+    }
+    .confirm {
+        width: 20%;
+        background-color: $white;
+        color: $black;
+        border: 3px solid $blue;
+        position: fixed;
+        left: 42%;
+        top: 80%;
+        transition: 0.5s;
+    }
+    .confirm:hover {
+        background-color: $blue;
+        color: $white;
+        transition: 0.5s;
+    }
+    // Product Element
+    .product {
+        .expand {
+            left: 96%;
+            padding-top: 15px;
+            cursor: pointer;
+        }
+    }
+    // Product Details
+    .product-details {
+        width: 83.66%;
+        height: 75%;
+        left: 10.8%;
+        .compress {
+            left: 107.2%;
+            padding-top: 12px;
+            cursor: pointer;
+        }
+    }
+    // Edit Product Page
+    .edit-product {
+        width: 83.66%;
+        height: 75%;
+        left: 10.8%;
+        .base-edit {
+            top: 2.1%;
+        }
+        .edit-form {
+            height: 56%;
+        }
+        input {
+            width: 69vw;
+        }
+        .return {
+            left: 95.7%;
+            top: 5%;
+        }
+    }
+    // Edit and Delete confirmation overlay/popup/modal
+    .edit-confirm, .delete-confirm {
+        width: 83.8%;
+        height: 75%;
+        left: 10.7%;
+        .close {
+            top: 3.5%;
+            left: 95.7%;
+        }
+        .overlay-buttons {
+            top: 85%;
+            left: 0%;
+            .yes {
+                width: 11%;
+                position: absolute;
+                left: 22.5%;
+                top: 30%;
+                transition: 0.5s;
+            }
+            .yes:hover {
+                background-color: $blue;
+                color: $white;
+                transition: 0.5s;
+            }
+            .no {
+                width: 11%;
+                position: absolute;
+                right: 22.5%;
+                top: 30%;
+                transition: 0.5s;
+            }
+            .no:hover {
+                background-color: $blue;
+                color: $white;
+                transition: 0.5s;
+            }
+        }
+        
+    }
+    // Bottom Fixed Section with buttons
+    .bottom-section {
+        grid-area: bottom;
+        z-index: 5;
+    }
+    .tooltip {
+        #tooltip-name, #tooltip-brand, #tooltip-cpu, #tooltip-ram, #tooltip-gpu, #tooltip-hdd {
+            z-index: 5;
+            bottom: -5%;
+            padding: 13px 0;
+            width: 88.8%;
+        }
+        #tooltip-cpu-edit, #tooltip-ram-edit, #tooltip-gpu-edit, #tooltip-hdd-edit {
+            z-index: 5;
+            bottom: -5%;
+            padding: 13px 0;
+            width: 96%;
+        }
+        .info-icon {
+            padding-left: 2%;
+            cursor: pointer;
+                #info-icon-name, #info-icon-brand, #info-icon-cpu, #info-icon-ram, #info-icon-gpu, #info-icon-hdd {
+                    transition: 0.5s;
+                }
+                #info-icon-name-edit, #info-icon-brand-edit, #info-icon-cpu-edit, #info-icon-ram-edit, #info-icon-gpu-edit, #info-icon-hdd-edit {
+                    transition: 0.5s;
+                }
+            }
+        }
+} // Desktop Media Query end

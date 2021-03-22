@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.243" height="24.731" viewBox="0 0 25.243 24.731">
+  <g id="Notification_Bell" data-name="Notification Bell" transform="translate(-12 -17)">
+    <path id="Icon_material-notifications-active" data-name="Icon material-notifications-active" d="M9.514,5.592,7.848,3.925a12.152,12.152,0,0,0-4.8,9.15H5.376A9.845,9.845,0,0,1,9.514,5.592Zm14.443,7.484h2.331a12.226,12.226,0,0,0-4.8-9.15L19.831,5.592A9.9,9.9,0,0,1,23.957,13.075Zm-2.3.583c0-3.579-1.912-6.574-5.246-7.367V5.5a1.749,1.749,0,1,0-3.5,0v.793c-3.345.793-5.246,3.777-5.246,7.367v5.828L5.341,21.818v1.166H23.992V21.818l-2.331-2.331ZM14.667,26.481a2.042,2.042,0,0,0,.466-.047,2.365,2.365,0,0,0,1.679-1.375,2.34,2.34,0,0,0,.175-.909H12.324A2.348,2.348,0,0,0,14.667,26.481Z" transform="translate(10.955 15.25)" fill="#252525"/>
+    <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="6" cy="5.5" rx="6" ry="5.5" transform="translate(12 17)" fill="#c73a3a"/>
+    <text id="_1" data-name="1" transform="translate(18 25)" font-size="6" font-family="Ubuntu-Regular, Ubuntu"><tspan x="-1.692" y="0">1</tspan></text>
+  </g>
+</svg>

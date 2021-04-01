@@ -1,8 +1,9 @@
 # Brief 4 (YouCode Safi 2020 Alan Turing): Application de gestion d'inventaire d'un magasin / Store inventory management App.
+# Responsive to all Devices . 
 
 Créer une maquette/prototype pour les versions desktop et mobile et réaliser le front-end et le back-end de l'application.
 Create a mockup/prototype for desktop and mobile versions and make the frontend and the backend of the app.
-    &Responsive to all Phones 
+
 
 # Onyx Systems
 

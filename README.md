@@ -2,6 +2,7 @@
 
 Créer une maquette/prototype pour les versions desktop et mobile et réaliser le front-end et le back-end de l'application.
 Create a mockup/prototype for desktop and mobile versions and make the frontend and the backend of the app.
+    &Responsive to all Phones 
 
 # Onyx Systems
 
